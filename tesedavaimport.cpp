@@ -136,8 +136,15 @@ QStringList TeseoDavaSrp::getHours()
 
      return _suggesteds;
  }
+/*
+ QStringList TeseoDavaSrp::getSuggested(QString str)
+ {
+     //QMap<QString,QStringList> _suggesteds={};
+     //this->getExistingOnly();
 
-
+     return this->getExistingOnly();
+ }
+ */
  QString TeseoDavaSrp::getBestMatch(QString s)
  {
      QString _bestMatch={};
@@ -168,54 +175,54 @@ QStringList TeseoDavaSrp::getHours()
         //qDebug()<<"x  :"<<x<<"  y  :"<<y;
         while(x>=0||y< this->_existingAndDummy.length())
             {
-            if((y+1)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+1)).hasMatch()&& exp45.match(this->_existingAndDummy.at(y+1)).hasMatch() )
+            if((y+1)<this->_existingAndDummy.length()/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+1)).hasMatch()*/&& exp45.match(this->_existingAndDummy.at(y+1)).hasMatch() )
               {
                 //qDebug()<<"  y+1  :"<<y+1<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(y+1);
                 _bestMatch=this->_existingAndDummy.at(y+1);
                  break;
               }
 
-             else if((x-1)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-1)).hasMatch()&& exp15.match(this->_existingAndDummy.at(x-1)).hasMatch())
+             else if((x-1)>=0/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-1)).hasMatch()*/&& exp15.match(this->_existingAndDummy.at(x-1)).hasMatch())
               {
                  //qDebug()<<"  x-1  :"<<x-1<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(x-1);
                  _bestMatch=this->_existingAndDummy.at(x-1);
                   break;
                }
 
-             else if((y+2)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+2)).hasMatch()&& exp00.match(this->_existingAndDummy.at(y+2)).hasMatch())
+             else if((y+2)<this->_existingAndDummy.length()/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+2)).hasMatch()*/&& exp00.match(this->_existingAndDummy.at(y+2)).hasMatch())
               {
                  // qDebug()<<"  y+2  :"<<y+2<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(y+2);
                   _bestMatch=this->_existingAndDummy.at(y+2);
                   break;
               }
-             else if((x-2)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-2)).hasMatch()&& exp00.match(this->_existingAndDummy.at(x-2)).hasMatch())
+             else if((x-2)>=0/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-2)).hasMatch()*/&& exp00.match(this->_existingAndDummy.at(x-2)).hasMatch())
 
               {
                   //qDebug()<<"  x-2  :"<<x-2<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(x-2);
                   _bestMatch=this->_existingAndDummy.at(x-2);
                    break;
                }
-              else if((y+3)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+3)).hasMatch()&& exp15.match(this->_existingAndDummy.at(y+3)).hasMatch())
+              else if((y+3)<this->_existingAndDummy.length()/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+3)).hasMatch()*/&& exp15.match(this->_existingAndDummy.at(y+3)).hasMatch())
                {
                   // qDebug()<<"  y+3  :"<<y+3<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(y+3);
                    _bestMatch=this->_existingAndDummy.at(y+3);
                     break;
                }
-              else if((x-3)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-3)).hasMatch()&& exp15.match(this->_existingAndDummy.at(x-3)).hasMatch())
+              else if((x-3)>=0/*&& QRegularExpression(hr).match(this->_existingAndDummy.at(x-3)).hasMatch()*/&& exp15.match(this->_existingAndDummy.at(x-3)).hasMatch())
                {
                   // qDebug()<<"  x-3  :"<<x-3<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(x-3);
                    _bestMatch=this->_existingAndDummy.at(x-3);
                     break;
                }
 
-              else if((y+4)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+4)).hasMatch()&& exp30.match(this->_existingAndDummy.at(y+4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(y+4)))
+              else if((y+4)<this->_existingAndDummy.length()/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+4)).hasMatch()*/&& exp30.match(this->_existingAndDummy.at(y+4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(y+4)))
 
                 {
                    // qDebug()<<"  y+4  :"<<y+4<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(y+4);
                     _bestMatch=this->_existingAndDummy.at(y+4);
                     break;
                  }
-              else if ((x-4)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-4)).hasMatch()&& exp30.match(this->_existingAndDummy.at(x-4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(x-4)))  //else if
+              else if ((x-4)>=0&&/*QRegularExpression(hr).match(this->_existingAndDummy.at(x-4)).hasMatch()&&*/ exp30.match(this->_existingAndDummy.at(x-4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(x-4)))  //else if
                  {
                     //qDebug()<<"  x-4  :"<<x-4<<"Key :"<<s<<"Value :"<<this->_existingAndDummy.at(x-4);
                     _bestMatch=this->_existingAndDummy.at(x-4);
@@ -269,51 +276,51 @@ QMap<QString,QString>  TeseoDavaSrp::setBestOption(QStringList s) //pass single 
            while(x>=0||y< this->_existingAndDummy.length())
 
               {
-                if((y+1)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+1)).hasMatch()&& exp45.match(this->_existingAndDummy.at(y+1)).hasMatch() )
+                if((y+1)<this->_existingAndDummy.length()/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+1)).hasMatch()*/&& exp45.match(this->_existingAndDummy.at(y+1)).hasMatch() )
                  {
                     //qDebug()<<"  y+1  :"<<y+1<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(y+1);
                     this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(y+1));
                     break;
                   }
 
-                 else if((x-1)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-1)).hasMatch()&& exp15.match(this->_existingAndDummy.at(x-1)).hasMatch())
+                 else if((x-1)>=0/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-1)).hasMatch()*/&& exp15.match(this->_existingAndDummy.at(x-1)).hasMatch())
                   {
                      //qDebug()<<"  x-1  :"<<x-1<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(x-1);
                      this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(x-1));
                      break;
                    }
 
-                  else if((y+2)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+2)).hasMatch()&& exp00.match(this->_existingAndDummy.at(y+2)).hasMatch())
+                  else if((y+2)<this->_existingAndDummy.length()/*&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+2)).hasMatch()*/&& exp00.match(this->_existingAndDummy.at(y+2)).hasMatch())
                    {
                      //qDebug()<<"  y+2  :"<<y+2<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(y+2);
                      this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(y+2));
                      break;
                     }
-                  else if((x-2)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-2)).hasMatch()&& exp00.match(this->_existingAndDummy.at(x-2)).hasMatch())
+                  else if((x-2)>=0&&/*QRegularExpression(hr).match(this->_existingAndDummy.at(x-2)).hasMatch()&&*/ exp00.match(this->_existingAndDummy.at(x-2)).hasMatch())
                     {
                        //qDebug()<<"  x-2  :"<<x-2<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(x-2);
                        this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(x-2));
                        break;
                      }
-                  else if((y+3)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+3)).hasMatch()&& exp15.match(this->_existingAndDummy.at(y+3)).hasMatch())
+                  else if((y+3)<this->_existingAndDummy.length()&&/*QRegularExpression(hr).match(this->_existingAndDummy.at(y+3)).hasMatch()&&*/ exp15.match(this->_existingAndDummy.at(y+3)).hasMatch())
                     {
                       //qDebug()<<"  y+3  :"<<y+3<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(y+3);
                       this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(y+3));
                       break;
                     }
-                 else if((x-3)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-3)).hasMatch()&& exp15.match(this->_existingAndDummy.at(x-3)).hasMatch())
+                 else if((x-3)>=0&&/*QRegularExpression(hr).match(this->_existingAndDummy.at(x-3)).hasMatch()&&*/ exp15.match(this->_existingAndDummy.at(x-3)).hasMatch())
                    {
                     //qDebug()<<"  x-3  :"<<x-3<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(x-3);
                     this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(x-3));
                     break;
                    }
-                 else if((y+4)<this->_existingAndDummy.length()&&QRegularExpression(hr).match(this->_existingAndDummy.at(y+4)).hasMatch()&& exp30.match(this->_existingAndDummy.at(y+4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(y+4)))
+                 else if((y+4)<this->_existingAndDummy.length()&&/*QRegularExpression(hr).match(this->_existingAndDummy.at(y+4)).hasMatch()&&*/ exp30.match(this->_existingAndDummy.at(y+4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(y+4)))
                    {
                      //qDebug()<<"  y+4  :"<<y+4<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(y+4);
                      this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(y+4));
                      break;
                    }
-                else if ((x-4)>=0&&QRegularExpression(hr).match(this->_existingAndDummy.at(x-4)).hasMatch()&& exp30.match(this->_existingAndDummy.at(x-4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(x-4)))  //else if
+                else if ((x-4)>=0&&/*QRegularExpression(hr).match(this->_existingAndDummy.at(x-4)).hasMatch()&&*/ exp30.match(this->_existingAndDummy.at(x-4)).hasMatch()&& this->_existingOnly_30.contains(this->_existingAndDummy.at(x-4)))  //else if
                    {
                      //qDebug()<<"  x-4  :"<<x-4<<"Key :"<<s.at(i)<<"Value :"<<this->_existingAndDummy.at(x-4);
                      this->_bestMatches.insert(s.at(i),this->_existingAndDummy.at(x-4));

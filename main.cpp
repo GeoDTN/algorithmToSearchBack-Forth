@@ -5,13 +5,11 @@ using namespace std;
 int main()
 {
     QString path="C:/Users/tadewos.somano/Desktop/davatestFolder";
-
     QDir  dir(path);
     TeseoDavaSrp davasrp(dir);
     davasrp.generateDummyFiles(QDateTime ::currentDateTime());
     davasrp.getDavaFiles(davasrp.getDir());
     //cout<<"The number of existing files is:  "<<davasrp.getCount()<<"\n\n\n";
-
     //qDebug()<<"Non existing 30s are/is :";
      qDebug()<<"Number of missing ones is :"<<davasrp.setBestOption(davasrp.getNonExisting_30_Only().toList()).size();
     for(QString str:davasrp.getNonExisting_30_Only())
@@ -21,9 +19,9 @@ int main()
         qDebug()<<"=====================================================";
 
     }
+    qDebug()<<"Printing suggested ones for each missing";
     for(QString str:davasrp.getNonExisting_30_Only())
     {
-                qDebug()<<"Printing suggested ones for each missing";
                 qDebug()<<"Key  "<<str<<"   Value  :"<<davasrp.getSuggested(str).values();
      }
     //qDebug()<<"Dummy hrs are  :";

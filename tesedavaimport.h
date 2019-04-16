@@ -25,7 +25,7 @@ public:
     QDir getDir();
     int  getCount();
     int  getDCount();
-
+    //QStringList getSuggested(QString str);
     QStringList getExistingOnly();
     QStringList getExistingAndDummy();
     QStringList getExisting_30_Only();

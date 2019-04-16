@@ -25,6 +25,7 @@ public:
     QDir getDir();
     int  getCount();
     int  getDCount();
+
     QStringList getExistingOnly();
     QStringList getExistingAndDummy();
     QStringList getExisting_30_Only();
@@ -33,6 +34,8 @@ public:
     QMap<QString, QString > bestMatches();
     QStringList getHours();
     void printMatches();
+    QString getBestMatch(QString str);
+    QMap<QString,QStringList> getSuggested(QString str);
 
  private:
     QStringList _existingOnly;

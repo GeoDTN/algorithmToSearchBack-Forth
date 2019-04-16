@@ -28,46 +28,12 @@ int main()
     {
         qDebug()<<str;
     }
-
-    qDebug()<<"Begin Algorithm";
-    davasrp.setBestOption(davasrp.getNonExisting_30_Only().toList());
-    qDebug()<<"End Algorithm";
-
-  /*
-    qDebug()<<"Existing only is :";
-    for(QString str:davasrp.getExistingOnly())
-    {
-
-        qDebug()<<str;
-    }
-
-
-    qDebug()<<"getExisting_30_Only :";
-    for(QString str:davasrp.getExisting_30_Only())
-    {
-
-        qDebug()<<str;
-    }
-
-    qDebug()<<"getExistingAndDummy_30 :";
-    for(QString str:davasrp.getDummy_30())
-    {
-        qDebug()<<str;
-    }
-
-    qDebug()<<"getExistingAndDummy :";
-    for(QString str:davasrp.getExistingAndDummy())
-    {
-        qDebug()<<str;
-    }
+    qDebug()<<"Number of missing ones is :"<<davasrp.setBestOption(davasrp.getNonExisting_30_Only().toList()).size();
+ /* qDebug()<<"Missing & Best Match pairs";
+    foreach(QString i, davasrp.setBestOption(davasrp.getNonExisting_30_Only().toList()).keys())
+        {
+            qDebug() <<"Missing  :"<<i <<"Best match  :"<< davasrp.setBestOption(davasrp.getNonExisting_30_Only().toList())[i];
+        }
 */
-
-    QMap<QString, QString>::const_iterator i=davasrp.bestMatches().constBegin();
-    qDebug()<<"bestMatches pairs :";
-    while (i != davasrp.bestMatches().constEnd()) {
-
-        qDebug()<<"Missing 30: "<<i.key() <<"Corresponding best option: "<<i.value() ;
-     }
-
     return 0;
 }

@@ -1,7 +1,6 @@
 #ifndef TESEDAVAIMPORT_H
 #define TESEDAVAIMPORT_H
 
-
 #include<QDateTime>
 #include<QSet>
 #include<QString>
@@ -11,7 +10,8 @@
 #include <QMap>
 #include <QVector>
 #include <QDebug>
-#include <QRegExp>
+#include <QRegularExpression>
+//#include <QRegExp>
 
 class TeseoDavaSrp:public QObject
 {
@@ -21,7 +21,7 @@ public:
     TeseoDavaSrp(/*QStringList existingOnly,QStringList dummy_30, QStringList existingOnly_30,QStringList existingAndDummy,QMap<QDate, QVector<QString>> suggested,*/QDir dir, QObject *parent=nullptr );
    /* QStringList*/ void  generateDummyFiles(QDateTime date);
    /* QStringList */ void    getDavaFiles(QDir dir);
-   /* QString*/  void   setBestOption(QStringList non_exist_30);
+   /* QString*/ QMap<QString,QString>  setBestOption(QStringList non_exist_30);
     QDir getDir();
     int  getCount();
     int  getDCount();
@@ -32,11 +32,14 @@ public:
     QSet<QString> getNonExisting_30_Only();
     QMap<QString, QString > bestMatches();
     QStringList getHours();
+    void printMatches();
 
  private:
     QStringList _existingOnly;
     QStringList _dummy_30;
     QStringList _existingOnly_30;
+    QStringList _nonExisting_30;
+
     //QStringList _existingAndDummy_30;
     QStringList _existingAndDummy;
     QMap<QDate, QVector<QString> > _suggested;
